@@ -1,0 +1,331 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --preto:#080808;
+  --preto2:#0F0F0F;
+  --preto3:#161616;
+  --ouro:#C9A84C;
+  --ouro2:#E2C068;
+  --ouro3:#F0D485;
+  --ouro-dim:rgba(201,168,76,0.15);
+  --prata:#C0C0C0;
+  --prata2:#888;
+  --branco:#F5F2EC;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--preto);
+  color:var(--branco);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+
+/* ── BARRA TOPO ── */
+.top-bar{
+  position:relative;z-index:10;
+  background:var(--ouro);
+  padding:10px 24px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.top-dot{width:6px;height:6px;border-radius:50%;background:var(--preto);animation:blink 2s infinite}
+.top-txt{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--preto)}
+
+/* ── NAV ── */
+nav{
+  position:relative;z-index:10;
+  background:rgba(8,8,8,0.96);
+  border-bottom:1px solid rgba(201,168,76,0.18);
+  padding:16px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-nome{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:var(--branco);line-height:1}
+.logo-sub{font-size:8px;font-weight:400;letter-spacing:5px;text-transform:uppercase;color:var(--ouro);margin-top:3px}
+.nav-ig{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);text-decoration:none;border:1px solid rgba(201,168,76,0.4);padding:10px 22px;transition:background .2s}
+.nav-ig:hover{background:rgba(201,168,76,0.1)}
+
+/* ── HERO PRINCIPAL ── */
+.hero{
+  position:relative;z-index:1;
+  min-height:calc(100vh - 88px);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+
+/* Coluna esquerda — conteúdo */
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 56px 80px 64px;
+  position:relative;
+}
+.hero-left::after{
+  content:'';
+  position:absolute;right:0;top:15%;bottom:15%;
+  width:1px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.3) 30%,rgba(201,168,76,0.3) 70%,transparent);
+}
+
+.hero-linha-v{width:1px;height:60px;background:var(--ouro);margin-bottom:36px;opacity:0;animation:fadeIn .6s .2s forwards}
+.hero-eyebrow{font-size:10px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--ouro);margin-bottom:28px;opacity:0;animation:fadeUp .7s .4s forwards}
+
+.hero-slogan{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,6vw,80px);
+  font-weight:900;line-height:.95;
+  letter-spacing:-1px;
+  color:var(--branco);
+  margin-bottom:4px;
+  opacity:0;animation:fadeUp .7s .6s forwards;
+}
+.hero-slogan em{display:block;color:var(--ouro);font-style:normal}
+.hero-slogan-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(16px,2vw,24px);
+  font-weight:300;
+  font-style:italic;
+  color:var(--prata2);
+  margin-bottom:40px;
+  display:block;
+  opacity:0;animation:fadeUp .7s .8s forwards;
+}
+
+.hero-divisor{width:56px;height:2px;background:var(--ouro);margin-bottom:28px;opacity:0;animation:fadeIn .7s 1s forwards}
+
+.hero-desc{
+  font-size:14px;font-weight:300;line-height:1.9;
+  color:var(--prata);max-width:440px;margin-bottom:48px;
+  opacity:0;animation:fadeUp .7s 1.1s forwards;
+}
+.hero-desc strong{color:var(--branco);font-weight:500}
+
+/* Formulário captura */
+.capture-label{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);margin-bottom:14px;opacity:0;animation:fadeUp .7s 1.2s forwards}
+.capture-form{display:flex;gap:0;max-width:440px;opacity:0;animation:fadeUp .7s 1.3s forwards}
+.capture-input{
+  flex:1;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(201,168,76,0.3);
+  border-right:none;
+  padding:14px 18px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;color:var(--branco);
+  outline:none;
+  transition:border-color .2s;
+}
+.capture-input::placeholder{color:var(--prata2);font-size:11px}
+.capture-input:focus{border-color:var(--ouro)}
+.capture-btn{
+  background:var(--ouro);color:var(--preto);
+  border:1px solid var(--ouro);
+  padding:14px 24px;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  cursor:pointer;white-space:nowrap;
+  transition:background .2s;
+}
+.capture-btn:hover{background:var(--ouro2)}
+.capture-note{font-size:10px;color:var(--prata2);margin-top:10px;opacity:0;animation:fadeIn .7s 1.5s forwards}
+.capture-success{display:none;font-size:12px;font-weight:500;color:#5CDB95;letter-spacing:2px;margin-top:12px}
+
+/* Coluna direita — foto + elementos visuais */
+.hero-right{
+  position:relative;
+  overflow:hidden;
+}
+.hero-foto{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  filter:brightness(0.55) contrast(1.1);
+  display:block;
+}
+/* Overlay gradiente sobre a foto */
+.hero-foto-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right, var(--preto) 0%, transparent 30%),
+             linear-gradient(to top, var(--preto) 0%, transparent 40%);
+}
+/* Escudo no canto */
+.hero-escudo-wrap{
+  position:absolute;top:40px;right:40px;
+  opacity:0;animation:fadeIn 1s 1.4s forwards;
+}
+/* Quote flutuante */
+.hero-quote{
+  position:absolute;bottom:48px;left:0;right:0;
+  padding:0 40px;
+  opacity:0;animation:fadeUp .7s 1.6s forwards;
+}
+.hero-quote-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2vw,26px);
+  font-weight:600;font-style:italic;
+  color:var(--branco);line-height:1.3;
+  border-left:2px solid var(--ouro);
+  padding-left:20px;
+}
+.hero-quote-author{font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);margin-top:10px;padding-left:20px}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  overflow:hidden;
+  background:var(--preto3);
+  border-top:1px solid rgba(201,168,76,0.12);
+  border-bottom:1px solid rgba(201,168,76,0.12);
+  padding:12px 0;
+  position:relative;z-index:2;
+}
+.marquee-track{display:flex;gap:56px;animation:marquee 26s linear infinite;white-space:nowrap}
+.m-item{font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:rgba(180,180,180,0.4);flex-shrink:0}
+.m-item b{color:var(--ouro)}
+
+/* ── VILÕES ── */
+.viloes-section{
+  position:relative;z-index:2;
+  background:var(--preto2);
+  border-bottom:1px solid rgba(201,168,76,0.08);
+  padding:80px 64px;
+}
+.sec-label{font-size:9px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--ouro);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.sec-label::before{content:'';display:inline-block;width:28px;height:1px;background:var(--ouro)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:var(--branco);margin-bottom:12px;line-height:1.1}
+.sec-sub{font-size:13px;font-weight:300;color:var(--prata2);line-height:1.8;max-width:560px;margin-bottom:52px}
+
+.viloes-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(201,168,76,0.1)}
+.vilao-item{
+  background:var(--preto2);
+  padding:28px 20px;
+  border:1px solid transparent;
+  transition:background .2s,border-color .2s;
+  cursor:default;
+}
+.vilao-item:hover{background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.15)}
+.vilao-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:10px}
+.vilao-nome{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px}
+.vilao-desc{font-size:11px;font-weight:300;color:var(--prata2);line-height:1.5}
+
+/* grid row 2 */
+.viloes-grid-2{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(201,168,76,0.1);margin-top:1px}
+
+/* ── TRECHO DO LIVRO ── */
+.trecho-section{
+  position:relative;z-index:2;
+  padding:80px 64px;
+  background:var(--preto);
+}
+.trecho-inner{max-width:800px;margin:0 auto;text-align:center}
+.trecho-aspas{font-family:'Cormorant Garamond',serif;font-size:80px;color:var(--ouro);line-height:.8;margin-bottom:16px;opacity:.4}
+.trecho-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3vw,32px);
+  font-weight:400;font-style:italic;
+  color:var(--branco);line-height:1.5;
+  margin-bottom:24px;
+}
+.trecho-txt em{color:var(--ouro);font-style:normal;font-weight:600}
+.trecho-fonte{font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--prata2)}
+.trecho-linha{width:40px;height:1px;background:var(--ouro);margin:20px auto}
+
+/* ── AUTORA ── */
+.autora-section{
+  position:relative;z-index:2;
+  background:var(--preto3);
+  border-top:1px solid rgba(201,168,76,0.1);
+  padding:80px 64px;
+  display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center;
+  max-width:1100px;margin:0 auto;
+}
+.autora-foto-wrap{position:relative;flex-shrink:0}
+.autora-foto-img{
+  width:280px;height:380px;
+  object-fit:cover;object-position:center top;
+  display:block;
+  border:1px solid rgba(201,168,76,0.2);
+  filter:brightness(0.9) contrast(1.05);
+}
+.autora-foto-frame{
+  position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;
+  border:1px solid rgba(201,168,76,0.15);
+  pointer-events:none;
+}
+.autora-info{}
+.autora-nome{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--branco);line-height:1;margin-bottom:6px}
+.autora-pen{font-size:10px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--ouro);margin-bottom:28px}
+.autora-linha{width:44px;height:1px;background:var(--ouro);margin-bottom:28px}
+.autora-bio{font-size:14px;font-weight:300;color:var(--prata);line-height:2;margin-bottom:36px}
+.autora-bio strong{color:var(--branco);font-weight:500}
+.autora-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.autora-tag{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);padding:6px 14px}
+.btn-ouro{display:inline-block;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--ouro);color:var(--preto);padding:14px 32px;text-decoration:none;transition:background .2s}
+.btn-ouro:hover{background:var(--ouro2)}
+
+/* ── EM CONSTRUÇÃO FINAL ── */
+.construcao-section{
+  position:relative;z-index:2;
+  background:var(--preto2);
+  border-top:1px solid rgba(201,168,76,0.2);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+  padding:64px;
+  display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
+}
+.const-ouro-bar{width:40px;height:2px;background:var(--ouro);margin-bottom:20px}
+.const-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--branco);margin-bottom:10px}
+.const-sub{font-size:13px;font-weight:300;color:var(--prata);line-height:1.9;max-width:500px}
+.const-status{display:flex;align-items:center;gap:10px;margin-top:20px}
+.const-dot{width:8px;height:8px;border-radius:50%;background:var(--ouro);animation:blink 2s infinite}
+.const-status-txt{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ouro)}
+.const-right{text-align:center;padding-left:48px;border-left:1px solid rgba(201,168,76,0.12)}
+.const-right-label{font-size:8px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:12px}
+.const-right-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--branco);line-height:1.2}
+.const-right-sub{font-size:8px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--prata2);margin-top:8px}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:2;
+  background:var(--preto);
+  border-top:1px solid rgba(201,168,76,0.15);
+  padding:48px 64px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;
+}
+.footer-nome{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--branco)}
+.footer-sub{font-size:8px;font-weight:400;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);margin-top:4px}
+.footer-copy{font-size:10px;font-weight:300;color:var(--prata2);margin-top:12px}
+.footer-right{text-align:right}
+.footer-ig{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.3);padding-bottom:2px}
+.footer-em-const{font-size:9px;color:var(--prata2);margin-top:10px;letter-spacing:2px;text-transform:uppercase}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:60px 24px 40px}
+  .hero-left::after{display:none}
+  .hero-right{height:420px}
+  .hero-quote{bottom:24px}
+  .viloes-section,.trecho-section,.autora-section{padding:60px 24px}
+  .autora-section{grid-template-columns:1fr;gap:32px}
+  .autora-foto-img{width:100%;height:300px}
+  .viloes-grid,.viloes-grid-2{grid-template-columns:repeat(2,1fr)}
+  .construcao-section{grid-template-columns:1fr;padding:40px 24px}
+  .const-right{border-left:none;border-top:1px solid rgba(201,168,76,0.12);padding-left:0;padding-top:32px}
+  footer{padding:40px 24px;flex-direction:column;align-items:flex-start}
+  .footer-right{text-align:left}
+  .capture-form{flex-direction:column}
+  .capture-input{border-right:1px solid rgba(201,168,76,0.3);border-bottom:none}
+  .capture-btn{padding:14px}
+}

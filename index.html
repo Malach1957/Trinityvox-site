@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Trinity Vox — O pânico passa. A clareza salva. Por Tania Gonzaga. Em breve."/>
+<title>Trinity Vox · Em Breve</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+
+<!-- BARRA TOPO -->
+<div class="top-bar">
+  <div class="top-dot"></div>
+  <span class="top-txt">Site em construção · Em breve a experiência completa · Acompanhe: @trinityvoxoficial</span>
+  <div class="top-dot"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo-wrap" href="#">
+    <svg width="38" height="42" viewBox="0 0 100 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Trinity Vox - escudo dourado">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E2C068"/>
+          <stop offset="100%" stop-color="#8B6914"/>
+        </linearGradient>
+      </defs>
+      <path d="M50 2 L97 17 L97 63 Q97 90 50 110 Q3 90 3 63 L3 17 Z" fill="#0F0F0F" stroke="url(#g1)" stroke-width="5"/>
+      <path d="M50 24 L73 74 L62 74 L50 50 L38 74 L27 74 Z" fill="#C9A84C"/>
+      <path d="M37 63 L50 51 L56 65 L48 74 L37 63Z" fill="#0F0F0F"/>
+      <line x1="42" y1="61" x2="57" y2="73" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="square"/>
+    </svg>
+    <div>
+      <div class="logo-nome">Trinity Vox</div>
+      <div class="logo-sub">Por Tania Gonzaga</div>
+    </div>
+  </a>
+  <span class="nav-ig" style="cursor:default;opacity:0.6" title="Em breve">@trinityvoxoficial · em breve</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Esquerda: conteúdo -->
+  <div class="hero-left">
+    <div class="hero-linha-v"></div>
+    <p class="hero-eyebrow">Trinity Vox · Por Tania Gonzaga · Em breve</p>
+
+    <h1 class="hero-slogan">
+      O pânico passa.<br>
+      <em>A clareza salva.</em>
+    </h1>
+    <span class="hero-slogan-sub">Porque o preparo não espera a emergência.</span>
+
+    <div class="hero-divisor"></div>
+
+    <p class="hero-desc">
+      Algo que você vai querer ter por perto. <strong>Em breve.</strong>
+    </p>
+
+    <p class="capture-label">Quero ser avisado no lançamento</p>
+    <div class="capture-form">
+      <input class="capture-input" type="email" id="email-input" placeholder="seu@email.com" aria-label="Seu e-mail"/>
+      <button class="capture-btn" onclick="handleCapture()">Avise-me</button>
+    </div>
+    <p class="capture-note">Sem spam. Só o que importa — na hora certa.</p>
+    <p class="capture-success" id="capture-success">✓ Ótimo! Você será avisado no lançamento.</p>
+  </div>
+
+  <!-- Direita: foto da autora -->
+  <div class="hero-right">
+    <!-- INSTRUÇÃO: Substitua o src abaixo pelo caminho da sua foto (foto do escritório, blazer preto) -->
+    <img class="hero-foto" src="./assets/tania.jpg" alt="Tania Gonzaga — Trinity Vox"
+         />
+    <div class="hero-foto-overlay"></div>
+
+    <!-- Escudo decorativo quando não há foto -->
+    <div class="hero-escudo-wrap">
+      <svg width="72" height="80" viewBox="0 0 100 112" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.6">
+        <path d="M50 2 L97 17 L97 63 Q97 90 50 110 Q3 90 3 63 L3 17 Z" fill="none" stroke="#C9A84C" stroke-width="3"/>
+        <path d="M50 24 L73 74 L62 74 L50 50 L38 74 L27 74 Z" fill="#C9A84C" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <!-- Quote na foto -->
+    <div class="hero-quote">
+      <p class="hero-quote-txt">"Quando o caos chega,<br>você será a pessoa mais lúcida da sala."</p>
+      <p class="hero-quote-author">Trinity Vox</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item">Trinity Vox · <b>Em breve</b></span>
+    <span class="m-item">Por Tania Gonzaga · <b>trinityvox.com.br</b></span>
+    <span class="m-item">O pânico passa. <b>A clareza salva.</b></span>
+    <span class="m-item">Cadastre seu e-mail · <b>Seja o primeiro a saber</b></span>
+    <span class="m-item">Trinity Vox · <b>Em breve</b></span>
+    <span class="m-item">Por Tania Gonzaga · <b>trinityvox.com.br</b></span>
+    <span class="m-item">O pânico passa. <b>A clareza salva.</b></span>
+    <span class="m-item">Cadastre seu e-mail · <b>Seja o primeiro a saber</b></span>
+  </div>
+</div>
+
+<!-- TEASER MÍNIMO -->
+<section style="background:var(--preto2);border-bottom:1px solid rgba(201,168,76,0.08);padding:72px 64px;text-align:center">
+  <p style="font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:var(--ouro);margin-bottom:20px">O que está vindo</p>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:#F5F2EC;line-height:1.15;max-width:640px;margin:0 auto 20px">
+    Algo está sendo criado.<br>E vai mudar o que você faz<br>quando mais importa.
+  </h2>
+  <p style="font-size:13px;font-weight:300;color:#888;line-height:1.9;max-width:500px;margin:0 auto 40px">
+    Em breve. Cadastre seu e-mail para ser avisado primeiro.
+  </p>
+  <div style="display:inline-flex;align-items:center;gap:16px;border:1px solid rgba(201,168,76,0.2);padding:20px 40px">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--ouro);line-height:1">Em breve</span>
+    <div style="width:1px;height:40px;background:rgba(201,168,76,0.2)"></div>
+    <span style="font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#666;text-align:left;line-height:1.8">Trinity Vox<br>Por Tania Gonzaga</span>
+  </div>
+</section>
+
+<!-- PERGUNTA PROVOCADORA -->
+<section class="trecho-section">
+  <div class="trecho-inner">
+    <p style="font-size:10px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--ouro);margin-bottom:32px">Uma pergunta</p>
+    <p class="trecho-txt">
+      Se algo acontecesse agora<br>com alguém que você ama —<br>
+      <em>você saberia o que fazer?</em>
+    </p>
+    <div class="trecho-linha"></div>
+    <p class="trecho-fonte">Esse livro existe porque a resposta, na maioria das vezes, é não.</p>
+    <p style="font-size:12px;font-weight:300;color:#555;margin-top:20px;letter-spacing:2px;text-transform:uppercase">Em breve · Trinity Vox</p>
+  </div>
+</section>
+
+<!-- AUTORA -->
+<div style="background:var(--preto3);border-top:1px solid rgba(201,168,76,0.1);padding:80px 64px">
+  <div class="autora-section" style="padding:0">
+    <div class="autora-foto-wrap">
+      <!-- INSTRUÇÃO: Substitua pelo caminho da foto do escritório, blazer preto -->
+      <img class="autora-foto-img" src="./assets/tania.jpg" alt="Tania Gonzaga"
+           />
+      <div class="autora-foto-frame"></div>
+    </div>
+    <div class="autora-info">
+      <p class="sec-label">A Autora</p>
+      <h2 class="autora-nome">Tania Gonzaga</h2>
+      <p class="autora-pen">Escreve como Trinity Vox</p>
+      <div class="autora-linha"></div>
+      <p class="autora-bio">
+        Jornalista e <strong>Arquiteta da Clareza</strong>. O método Trinity Vox nasceu de uma experiência que mudou tudo. A pergunta que não saiu mais da cabeça foi simples: <strong>"E se eu soubesse o que fazer?"</strong>
+        <br><br>
+        Trinity é a personagem que age quando todo o sistema entra em colapso. Vox é voz, em latim. Juntos: a voz que comanda quando o caos chega.
+      </p>
+      <div class="autora-tags">
+        <span class="autora-tag">Jornalista</span>
+        <span class="autora-tag">Arquiteta da Clareza</span>
+        <span class="autora-tag">Trinity Vox</span>
+      </div>
+      <span class="btn-ouro" style="cursor:default;opacity:0.7">Em breve: @trinityvoxoficial</span>
+    </div>
+  </div>
+</div>
+
+<!-- EM CONSTRUÇÃO -->
+<section class="construcao-section">
+  <div>
+    <div class="const-ouro-bar"></div>
+    <h3 class="const-title">Site em construção</h3>
+    <p class="const-sub">Estamos preparando a experiência completa da Trinity Vox. Cadastre seu e-mail acima para ser avisado em primeira mão — antes de todo mundo.</p>
+    <div class="const-status">
+      <div class="const-dot"></div>
+      <span class="const-status-txt">Projeto ativo · Em breve — 2026</span>
+    </div>
+  </div>
+  <div class="const-right">
+    <span class="const-right-label">Lançamento</span>
+    <div class="const-right-num">Em<br>breve</div>
+    <p class="const-right-sub">Trinity Vox</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <svg width="26" height="30" viewBox="0 0 100 112" fill="none">
+        <path d="M50 2 L97 17 L97 63 Q97 90 50 110 Q3 90 3 63 L3 17 Z" fill="#0F0F0F" stroke="#C9A84C" stroke-width="4"/>
+        <path d="M50 24 L73 74 L62 74 L50 50 L38 74 L27 74 Z" fill="#C9A84C"/>
+        <path d="M37 63 L50 51 L56 65 L48 74 L37 63Z" fill="#0F0F0F"/>
+        <line x1="42" y1="61" x2="57" y2="73" stroke="#C9A84C" stroke-width="3" stroke-linecap="square"/>
+      </svg>
+      <div class="footer-nome">Trinity Vox</div>
+    </div>
+    <div class="footer-sub">Por Tania Gonzaga</div>
+    <p class="footer-copy">© 2026 Trinity Vox. Todos os direitos reservados.<br>Marca em processo de registro · INPI · A.C.A.L.M.A. é um produto Trinity Vox</p>
+  </div>
+  <div class="footer-right">
+    <span class="footer-ig" style="cursor:default">@trinityvoxoficial</span>
+    <p class="footer-em-const" style="margin-top:14px">Site em construção</p>
+    <p style="font-size:9px;color:#444;margin-top:8px;letter-spacing:2px;font-style:italic">O pânico passa. A clareza salva.</p>
+  </div>
+</footer>
+
+<script>
+function handleCapture(){
+  var input=document.getElementById('email-input');
+  var success=document.getElementById('capture-success');
+  var email=input.value.trim();
+  if(!email||!email.includes('@')){
+    input.style.borderColor='#E24B4A';
+    input.placeholder='Digite um e-mail válido';
+    setTimeout(function(){input.style.borderColor='rgba(201,168,76,0.3)';input.placeholder='seu@email.com'},2000);
+    return;
+  }
+  input.parentNode.style.display='none';
+  success.style.display='block';
+  document.querySelector('.capture-note').style.display='none';
+}
+document.getElementById('email-input').addEventListener('keydown',function(e){if(e.key==='Enter')handleCapture()});
+</script>
+<script src="./script.js"></script>
+</body>
+</html>
