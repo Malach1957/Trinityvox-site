@@ -1,503 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trinity Vox · Em Breve</title>
-  <meta name="description" content="Trinity Vox — O pânico passa. A clareza salva. Por Tania Gonzaga. Em breve." />
-  <meta property="og:title" content="Trinity Vox · Em Breve" />
-  <meta property="og:description" content="Trinity Vox — O pânico passa. A clareza salva. Por Tania Gonzaga. Em breve." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Vox · Em Breve</title>
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+body{
+background:#0a0906;
+color:#f0ead8;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
 
-    :root {
-      --bg: #0a0906;
-      --surface: #111009;
-      --gold: #c9a84c;
-      --gold-light: #e2c47a;
-      --gold-pale: #f5e9c8;
-      --text: #f0ead8;
-      --muted: #8a7f6a;
-      --border: rgba(201,168,76,0.18);
-    }
+.box{
+max-width:500px;
+width:90%;
+}
 
-    html { scroll-behavior: smooth; }
+h1{
+font-size:42px;
+margin-bottom:10px;
+}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+p{
+color:#b9aa8d;
+line-height:1.6;
+}
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 2.5rem;
-      background: linear-gradient(to bottom, rgba(10,9,6,0.95), transparent);
-      backdrop-filter: blur(4px);
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--gold-pale);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-    }
-    .nav-logo span { display: block; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 300; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 1px; }
-    .nav-link {
-      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
-      transition: color 0.2s;
-    }
-    .nav-link:hover { color: var(--gold-light); }
-    .nav-link svg { width: 14px; height: 14px; }
+.form-label{
+display:block;
+margin:30px 0 10px;
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#c9a84c;
+}
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
+.form-row{
+display:flex;
+}
 
-    .hero-left {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 8rem 4rem 5rem 5rem;
-      position: relative; z-index: 2;
-    }
+input{
+flex:1;
+padding:15px;
+border:none;
+outline:none;
+background:#111009;
+color:#fff;
+font-size:15px;
+}
 
-    .hero-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 2rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
-    .hero-eyebrow::before {
-      content: ''; display: block; width: 28px; height: 1px; background: var(--gold);
-    }
+button{
+background:#c9a84c;
+border:none;
+padding:15px 22px;
+cursor:pointer;
+font-weight:bold;
+letter-spacing:2px;
+}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 1.8rem;
-    }
-    h1 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    .hero-sub {
-      font-size: 0.95rem; color: var(--muted); margin-bottom: 1.8rem;
-      max-width: 380px; line-height: 1.7;
-    }
-
-    .hero-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; line-height: 1.8;
-      color: rgba(240,234,216,0.8); max-width: 420px; margin-bottom: 3rem;
-    }
-    .hero-desc strong { color: var(--gold-light); font-weight: 500; }
-
-    .form-area { display: flex; flex-direction: column; gap: 0.6rem; max-width: 380px; }
-    .form-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-
-    .form-row { display: flex; gap: 0; }
-    .form-row input {
-      flex: 1;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-right: none;
-      border-radius: 3px 0 0 3px;
-      padding: 0.85rem 1.2rem;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .form-row input::placeholder { color: var(--muted); }
-    .form-row input:focus { border-color: var(--gold); background: rgba(201,168,76,0.05); }
-
-    .form-row button {
-      background: var(--gold);
-      color: #0a0906;
-      border: none;
-      padding: 0.85rem 1.4rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 0 3px 3px 0;
-      transition: background 0.2s, transform 0.1s;
-      white-space: nowrap;
-    }
-    .form-row button:hover { background: var(--gold-light); transform: translateX(1px); }
-    .form-row button:active { transform: scale(0.98); }
-
-    .form-note { font-size: 0.72rem; color: var(--muted); }
-
-    /* ── HERO RIGHT (image) ── */
-    .hero-right {
-      position: relative; overflow: hidden;
-    }
-    .hero-right img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: brightness(0.55) sepia(0.3);
-    }
-    .hero-right::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to right, var(--bg) 0%, transparent 35%),
-                  linear-gradient(to top, var(--bg) 0%, transparent 30%);
-    }
-    .hero-quote {
-      position: absolute; bottom: 2.5rem; left: 2rem; right: 2rem;
-      z-index: 2;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: rgba(240,234,216,0.65);
-      line-height: 1.6;
-      border-left: 2px solid var(--gold);
-      padding-left: 1rem;
-    }
-    .hero-quote cite { display: block; font-style: normal; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.6rem; }
-
-    /* ── TICKER ── */
-    .ticker { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 0.85rem 0; }
-    .ticker-track {
-      display: flex; gap: 0;
-      animation: ticker 30s linear infinite;
-      width: max-content;
-    }
-    .ticker-item {
-      white-space: nowrap;
-      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--muted); padding: 0 1.8rem;
-    }
-    .ticker-item span { color: var(--gold); margin-right: 1.8rem; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ── QUOTE SECTION ── */
-    .quote-section {
-      padding: 7rem 5rem;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .quote-section::before {
-      content: '"';
-      position: absolute; top: 2rem; left: 50%; transform: translateX(-50%);
-      font-family: 'Playfair Display', serif;
-      font-size: 15rem; color: rgba(201,168,76,0.05);
-      line-height: 1; pointer-events: none; user-select: none;
-    }
-    .quote-inner {
-      text-align: center; max-width: 680px; position: relative; z-index: 1;
-    }
-    .quote-inner blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--text);
-    }
-    .quote-inner blockquote em { color: var(--gold-light); font-style: italic; }
-    .quote-inner .q-attr {
-      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
-      margin-top: 2.5rem;
-    }
-    .q-attr-line { width: 40px; height: 1px; background: var(--border); }
-    .q-attr span { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-
-    /* ── AUTHOR ── */
-    .author-section {
-      padding: 6rem 5rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
-      align-items: center;
-      border-top: 1px solid var(--border);
-    }
-    .author-img-wrap {
-      position: relative; border-radius: 4px; overflow: hidden;
-      aspect-ratio: 4/5;
-    }
-    .author-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: brightness(0.7) sepia(0.25);
-    }
-    .author-img-wrap::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,9,6,0.6) 0%, transparent 50%);
-    }
-
-    .author-content { padding: 1rem 0; }
-    .author-eyebrow {
-      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.5rem;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 400; line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-    .author-bio {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; line-height: 1.85;
-      color: rgba(240,234,216,0.75); margin-bottom: 2.5rem;
-    }
-    .author-bio strong { color: var(--gold-light); font-weight: 500; }
-
-    .author-roles {
-      display: flex; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap;
-    }
-    .role-tag {
-      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      border: 1px solid var(--border); padding: 0.35rem 0.9rem;
-      border-radius: 2px; color: var(--muted);
-    }
-
-    .ig-link {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      color: var(--gold); text-decoration: none;
-      font-size: 0.78rem; letter-spacing: 0.1em;
-      border-bottom: 1px solid var(--border); padding-bottom: 0.2rem;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .ig-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
-    .ig-link svg { width: 15px; height: 15px; }
-
-    /* ── FOOTER CTA ── */
-    .footer-cta {
-      padding: 5rem 5rem 3rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .footer-cta p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 3rem; max-width: 480px; margin-left: auto; margin-right: auto; }
-
-    .launch-badges {
-      display: flex; align-items: center; justify-content: center; gap: 3rem;
-      margin-bottom: 4rem; flex-wrap: wrap;
-    }
-    .badge { text-align: center; }
-    .badge-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-    .badge-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold-light); }
-    .badge-sep { width: 1px; height: 40px; background: var(--border); }
-
-    footer {
-      padding: 2rem 5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo {
-      font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold-pale);
-    }
-    .footer-copy { font-size: 0.72rem; color: var(--muted); text-align: center; }
-    .footer-ig { font-size: 0.72rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .footer-ig:hover { color: var(--gold); }
-
-    /* ── "EM CONSTRUÇÃO" badge ── */
-    .construction-badge {
-      display: inline-block;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 0.3rem 0.8rem;
-      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.5rem;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 7rem 1.8rem 3rem; }
-      .hero-right { height: 55vw; }
-      .author-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.8rem; }
-      .quote-section { padding: 5rem 1.8rem; }
-      .footer-cta { padding: 4rem 1.8rem 2rem; }
-      footer { padding: 1.5rem 1.8rem; }
-      h1 { font-size: 2.4rem; }
-    }
-
-    /* ── FADE IN ── */
-    [data-fade] { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    [data-fade].visible { opacity: 1; transform: none; }
-  </style>
+.note{
+margin-top:10px;
+font-size:13px;
+color:#8a7f6a;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">Trinity Vox <span>Por Tania Gonzaga</span></a>
-    <a class="nav-link" href="https://instagram.com/trinityvoxoficial" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      @trinityvoxoficial · em breve
-    </a>
-  </nav>
+<div class="box">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow" data-fade>Em breve</div>
-      <h1 data-fade>O pânico passa.<br><em>A clareza salva.</em></h1>
-      <p class="hero-sub" data-fade>Porque o preparo não espera a emergência.</p>
-      <p class="hero-desc" data-fade>
-        <strong>Trinity Vox</strong> é um chamado à presença, à preparação e à voz interior que decide antes do caos. Algo que você vai querer ter por perto — quando o silêncio precisar virar direção.
-      </p>
-      <div class="form-area" data-fade>
-        <label class="form-label">Quero ser avisado no lançamento</label>
-        <div class="form-row">
-          <input type="email" placeholder="seu@email.com" id="emailInput" />
-          <button type="button" onclick="handleSubmit()">Avise-me</button>
-        </div>
-        <span class="form-note">Sem spam. Só o que importa — na hora certa.</span>
-      </div>
-    </div>
+<h1>Trinity Vox</h1>
 
-    <div class="hero-right">
-      <img src="https://trinityvox-com-br.lovable.app/assets/hero-DYXwn1Pc.jpg" alt="Trinity Vox" />
-      <blockquote class="hero-quote">
-        "Antes da tempestade, há sempre uma voz. Trinity Vox é essa voz."
-        <cite>— Tania Gonzaga</cite>
-      </blockquote>
-    </div>
-  </section>
+<p>
+O pânico passa. A clareza salva.<br>
+Cadastre seu e-mail e seja avisado no lançamento.
+</p>
 
-  <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <!-- duplicated for seamless loop -->
-      <span class="ticker-item"><span>·</span> Preparo · Não · Pânico</span>
-      <span class="ticker-item"><span>·</span> Clareza · Antes · Do · Caos</span>
-      <span class="ticker-item"><span>·</span> Voz · Interior · Decide</span>
-      <span class="ticker-item"><span>·</span> Trinity · Vox</span>
-      <span class="ticker-item"><span>·</span> Em · Breve</span>
-      <span class="ticker-item"><span>·</span> Tania · Gonzaga</span>
-      <span class="ticker-item"><span>·</span> Preparo · Não · Pânico</span>
-      <span class="ticker-item"><span>·</span> Clareza · Antes · Do · Caos</span>
-      <span class="ticker-item"><span>·</span> Voz · Interior · Decide</span>
-      <span class="ticker-item"><span>·</span> Trinity · Vox</span>
-      <span class="ticker-item"><span>·</span> Em · Breve</span>
-      <span class="ticker-item"><span>·</span> Tania · Gonzaga</span>
-    </div>
-  </div>
+<form action="https://formsubmit.co/taniaggonzaga@gmail.com" method="POST">
 
-  <!-- QUOTE -->
-  <section class="quote-section">
-    <div class="quote-inner" data-fade>
-      <blockquote>
-        "Há momentos em que a única coisa entre você e o caos é <em>uma voz</em> que você treinou para escutar antes do barulho começar."
-      </blockquote>
-      <div class="q-attr">
-        <div class="q-attr-line"></div>
-        <span>Trecho · Trinity Vox</span>
-        <div class="q-attr-line"></div>
-      </div>
-    </div>
-  </section>
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="Novo cadastro Trinity Vox">
+<input type="hidden" name="_next" value="https://trinityvox.com.br">
 
-  <!-- AUTHOR -->
-  <section class="author-section">
-    <div class="author-img-wrap" data-fade>
-      <img src="https://trinityvox-com-br.lovable.app/assets/hero-DYXwn1Pc.jpg" alt="Tania Gonzaga" />
-    </div>
-    <div class="author-content" data-fade>
-      <p class="author-eyebrow">Sobre a autora</p>
-      <h2>Tania Gonzaga</h2>
-      <p class="author-bio">
-        <strong>Tania Gonzaga</strong> escreve sobre o instante anterior à decisão — aquele em que o pânico tenta tomar a palavra. Em <strong>Trinity Vox</strong>, ela transforma experiência, escuta e preparo em um manual silencioso para os dias que ninguém viu chegar.
-      </p>
-      <div class="author-roles">
-        <span class="role-tag">Autora</span>
-        <span class="role-tag">Mentora</span>
-        <span class="role-tag">Voz</span>
-      </div>
-      <a class="ig-link" href="https://instagram.com/trinityvoxoficial" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        Acompanhar no Instagram
-      </a>
-    </div>
-  </section>
+<label class="form-label">
+QUERO SER AVISADO NO LANÇAMENTO
+</label>
 
-  <!-- FOOTER CTA -->
-  <section class="footer-cta">
-    <div class="construction-badge" data-fade>Em construção, com cuidado.</div>
-    <p data-fade>Estamos preparando uma experiência à altura do que Trinity Vox propõe. Deixe seu e-mail acima e seja o primeiro a saber quando abrirmos as portas.</p>
-    <div class="launch-badges" data-fade>
-      <div class="badge">
-        <div class="badge-label">Lançamento em breve</div>
-        <div class="badge-value">Pré-lançamento</div>
-      </div>
-      <div class="badge-sep"></div>
-      <div class="badge">
-        <div class="badge-label">Ano</div>
-        <div class="badge-value">2026</div>
-      </div>
-      <div class="badge-sep"></div>
-      <div class="badge">
-        <div class="badge-label">Status</div>
-        <div class="badge-value" style="font-size:1rem;">Lista de espera aberta</div>
-      </div>
-    </div>
-  </section>
+<div class="form-row">
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">Trinity Vox<br><small style="font-family:Inter,sans-serif;font-size:0.65rem;color:var(--muted);font-weight:300;letter-spacing:0.1em;text-transform:uppercase;">Por Tania Gonzaga</small></div>
-    <p class="footer-copy">© 2026 Trinity Vox. Todos os direitos reservados.</p>
-    <a class="footer-ig" href="https://instagram.com/trinityvoxoficial" target="_blank" rel="noopener">@trinityvoxoficial</a>
-  </footer>
+<input
+type="email"
+name="email"
+placeholder="seu@email.com"
+required
+>
 
-  <script>
-    // Fade-in on scroll
-    const faders = document.querySelectorAll('[data-fade]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    faders.forEach(el => observer.observe(el));
-    // Trigger visible ones on load
-    setTimeout(() => {
-      faders.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) el.classList.add('visible');
-      });
-    }, 100);
+<button type="submit">
+AVISE-ME
+</button>
 
-    // Form
-    function handleSubmit() {
-      const input = document.getElementById('emailInput');
-      const email = input.value.trim();
-      if (!email || !email.includes('@')) {
-        input.style.borderColor = '#c0392b';
-        setTimeout(() => input.style.borderColor = '', 1500);
-        return;
-      }
-      input.value = '';
-      input.placeholder = '✓ Você será avisado!';
-      input.disabled = true;
-    }
-  </script>
+</div>
+
+<div class="note">
+Sem spam. Só o que importa — na hora certa.
+</div>
+
+</form>
+
+</div>
+
 </body>
 </html>
