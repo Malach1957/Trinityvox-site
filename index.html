@@ -1,522 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trinity Vox · Em Breve</title>
-  <meta name="description" content="Trinity Vox — O pânico passa. A clareza salva. Por Tania Gonzaga. Em breve." />
-  <meta property="og:title" content="Trinity Vox · Em Breve" />
-  <meta property="og:description" content="Trinity Vox — O pânico passa. A clareza salva. Por Tania Gonzaga. Em breve." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0a0906;
-      --surface: #111009;
-      --gold: #c9a84c;
-      --gold-light: #e2c47a;
-      --gold-pale: #f5e9c8;
-      --text: #f0ead8;
-      --muted: #8a7f6a;
-      --border: rgba(201,168,76,0.18);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 2.5rem;
-      background: linear-gradient(to bottom, rgba(10,9,6,0.95), transparent);
-      backdrop-filter: blur(4px);
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--gold-pale);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-    }
-    .nav-logo span { display: block; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 300; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 1px; }
-    .nav-link {
-      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
-      transition: color 0.2s;
-    }
-    .nav-link:hover { color: var(--gold-light); }
-    .nav-link svg { width: 14px; height: 14px; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-left {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 8rem 4rem 5rem 5rem;
-      position: relative; z-index: 2;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 2rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
-    .hero-eyebrow::before {
-      content: ''; display: block; width: 28px; height: 1px; background: var(--gold);
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 1.8rem;
-    }
-    h1 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    .hero-sub {
-      font-size: 0.95rem; color: var(--muted); margin-bottom: 1.8rem;
-      max-width: 380px; line-height: 1.7;
-    }
-
-    .hero-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; line-height: 1.8;
-      color: rgba(240,234,216,0.8); max-width: 420px; margin-bottom: 3rem;
-    }
-    .hero-desc strong { color: var(--gold-light); font-weight: 500; }
-
-    .form-area { display: flex; flex-direction: column; gap: 0.6rem; max-width: 380px; }
-    .form-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-
-    .form-row { display: flex; gap: 0; }
-    .form-row input {
-      flex: 1;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-right: none;
-      border-radius: 3px 0 0 3px;
-      padding: 0.85rem 1.2rem;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .form-row input::placeholder { color: var(--muted); }
-    .form-row input:focus { border-color: var(--gold); background: rgba(201,168,76,0.05); }
-
-    .form-row button {
-      background: var(--gold);
-      color: #0a0906;
-      border: none;
-      padding: 0.85rem 1.4rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 0 3px 3px 0;
-      transition: background 0.2s, transform 0.1s;
-      white-space: nowrap;
-    }
-    .form-row button:hover { background: var(--gold-light); transform: translateX(1px); }
-    .form-row button:active { transform: scale(0.98); }
-
-    .form-note { font-size: 0.72rem; color: var(--muted); }
-
-    /* ── HERO RIGHT (image) ── */
-    .hero-right {
-      position: relative; overflow: hidden;
-    }
-    .hero-right img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: brightness(0.55) sepia(0.3);
-    }
-    .hero-right::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to right, var(--bg) 0%, transparent 35%),
-                  linear-gradient(to top, var(--bg) 0%, transparent 30%);
-    }
-    .hero-quote {
-      position: absolute; bottom: 2.5rem; left: 2rem; right: 2rem;
-      z-index: 2;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: rgba(240,234,216,0.65);
-      line-height: 1.6;
-      border-left: 2px solid var(--gold);
-      padding-left: 1rem;
-    }
-    .hero-quote cite { display: block; font-style: normal; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.6rem; }
-
-    /* ── TICKER ── */
-    .ticker { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 0.85rem 0; }
-    .ticker-track {
-      display: flex; gap: 0;
-      animation: ticker 30s linear infinite;
-      width: max-content;
-    }
-    .ticker-item {
-      white-space: nowrap;
-      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--muted); padding: 0 1.8rem;
-    }
-    .ticker-item span { color: var(--gold); margin-right: 1.8rem; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ── QUOTE SECTION ── */
-    .quote-section {
-      padding: 7rem 5rem;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .quote-section::before {
-      content: '"';
-      position: absolute; top: 2rem; left: 50%; transform: translateX(-50%);
-      font-family: 'Playfair Display', serif;
-      font-size: 15rem; color: rgba(201,168,76,0.05);
-      line-height: 1; pointer-events: none; user-select: none;
-    }
-    .quote-inner {
-      text-align: center; max-width: 680px; position: relative; z-index: 1;
-    }
-    .quote-inner blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--text);
-    }
-    .quote-inner blockquote em { color: var(--gold-light); font-style: italic; }
-    .quote-inner .q-attr {
-      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
-      margin-top: 2.5rem;
-    }
-    .q-attr-line { width: 40px; height: 1px; background: var(--border); }
-    .q-attr span { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-
-    /* ── AUTHOR ── */
-    .author-section {
-      padding: 6rem 5rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
-      align-items: center;
-      border-top: 1px solid var(--border);
-    }
-    .author-img-wrap {
-      position: relative; border-radius: 4px; overflow: hidden;
-      aspect-ratio: 4/5;
-    }
-    .author-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: brightness(0.7) sepia(0.25);
-    }
-    .author-img-wrap::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,9,6,0.6) 0%, transparent 50%);
-    }
-
-    .author-content { padding: 1rem 0; }
-    .author-eyebrow {
-      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.5rem;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 400; line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-    .author-bio {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; line-height: 1.85;
-      color: rgba(240,234,216,0.75); margin-bottom: 2.5rem;
-    }
-    .author-bio strong { color: var(--gold-light); font-weight: 500; }
-
-    .author-roles {
-      display: flex; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap;
-    }
-    .role-tag {
-      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      border: 1px solid var(--border); padding: 0.35rem 0.9rem;
-      border-radius: 2px; color: var(--muted);
-    }
-
-    .ig-link {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      color: var(--gold); text-decoration: none;
-      font-size: 0.78rem; letter-spacing: 0.1em;
-      border-bottom: 1px solid var(--border); padding-bottom: 0.2rem;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .ig-link:hover { color: var(--gold-light); border-color: var(--gold-light); }
-    .ig-link svg { width: 15px; height: 15px; }
-
-    /* ── FOOTER CTA ── */
-    .footer-cta {
-      padding: 5rem 5rem 3rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .footer-cta p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 3rem; max-width: 480px; margin-left: auto; margin-right: auto; }
-
-    .launch-badges {
-      display: flex; align-items: center; justify-content: center; gap: 3rem;
-      margin-bottom: 4rem; flex-wrap: wrap;
-    }
-    .badge { text-align: center; }
-    .badge-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-    .badge-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold-light); }
-    .badge-sep { width: 1px; height: 40px; background: var(--border); }
-
-    footer {
-      padding: 2rem 5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo {
-      font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold-pale);
-    }
-    .footer-copy { font-size: 0.72rem; color: var(--muted); text-align: center; }
-    .footer-ig { font-size: 0.72rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .footer-ig:hover { color: var(--gold); }
-
-    /* ── "EM CONSTRUÇÃO" badge ── */
-    .construction-badge {
-      display: inline-block;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 0.3rem 0.8rem;
-      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.5rem;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 7rem 1.8rem 3rem; }
-      .hero-right { height: 55vw; }
-      .author-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.8rem; }
-      .quote-section { padding: 5rem 1.8rem; }
-      .footer-cta { padding: 4rem 1.8rem 2rem; }
-      footer { padding: 1.5rem 1.8rem; }
-      h1 { font-size: 2.4rem; }
-    }
-
-    /* ── FADE IN ── */
-    [data-fade] { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    [data-fade].visible { opacity: 1; transform: none; }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Trinity Vox — O pânico passa. A clareza salva. Por Tania Gonzaga. Em breve."/>
+<title>Trinity Vox · Em Breve</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">Trinity Vox <span>Por Tania Gonzaga</span></a>
-    <a class="nav-link" href="https://instagram.com/trinityvoxoficial" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      @trinityvoxoficial · em breve
-    </a>
-  </nav>
+<!-- BARRA TOPO -->
+<div class="top-bar">
+  <div class="top-dot"></div>
+  <span class="top-txt">Site em construção · Em breve a experiência completa · Acompanhe: @trinityvoxoficial</span>
+  <div class="top-dot"></div>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow" data-fade>Em breve</div>
-      <h1 data-fade>O pânico passa.<br><em>A clareza salva.</em></h1>
-      <p class="hero-sub" data-fade>Porque o preparo não espera a emergência.</p>
-      <p class="hero-desc" data-fade>
-        <strong>Trinity Vox</strong> é um chamado à presença, à preparação e à voz interior que decide antes do caos. Algo que você vai querer ter por perto — quando o silêncio precisar virar direção.
-      </p>
-      ```html id="m5v9qe"
-<form action="https://formsubmit.co/SEUEMAIL@gmail.com" method="POST" class="form-area" data-fade>
+<!-- NAV -->
+<nav>
+  <a class="logo-wrap" href="#">
+    <svg width="38" height="42" viewBox="0 0 100 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Trinity Vox - escudo dourado">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E2C068"/>
+          <stop offset="100%" stop-color="#8B6914"/>
+        </linearGradient>
+      </defs>
+      <path d="M50 2 L97 17 L97 63 Q97 90 50 110 Q3 90 3 63 L3 17 Z" fill="#0F0F0F" stroke="url(#g1)" stroke-width="5"/>
+      <path d="M50 24 L73 74 L62 74 L50 50 L38 74 L27 74 Z" fill="#C9A84C"/>
+      <path d="M37 63 L50 51 L56 65 L48 74 L37 63Z" fill="#0F0F0F"/>
+      <line x1="42" y1="61" x2="57" y2="73" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="square"/>
+    </svg>
+    <div>
+      <div class="logo-nome">Trinity Vox</div>
+      <div class="logo-sub">Por Tania Gonzaga</div>
+    </div>
+  </a>
+  <span class="nav-ig" style="cursor:default;opacity:0.6" title="Em breve">@trinityvoxoficial · em breve</span>
+</nav>
 
-  <label class="form-label">
-    Quero ser avisado no lançamento
-  </label>
+<!-- HERO -->
+<section class="hero">
+  <!-- Esquerda: conteúdo -->
+  <div class="hero-left">
+    <div class="hero-linha-v"></div>
+    <p class="hero-eyebrow">Trinity Vox · Por Tania Gonzaga · Em breve</p>
 
-  <div class="form-row">
-    <input 
-      type="email" 
-      name="email"
-      placeholder="seu@email.com" 
-      required
-    />
+    <h1 class="hero-slogan">
+      O pânico passa.<br>
+      <em>A clareza salva.</em>
+    </h1>
+    <span class="hero-slogan-sub">Porque o preparo não espera a emergência.</span>
 
-    <button type="submit">
-      Avise-me
-    </button>
+    <div class="hero-divisor"></div>
+
+    <p class="hero-desc">
+      Algo que você vai querer ter por perto. <strong>Em breve.</strong>
+    </p>
+
+    <p class="capture-label">Quero ser avisado no lançamento</p>
+    <div class="capture-form">
+      <input class="capture-input" type="email" id="email-input" placeholder="seu@email.com" aria-label="Seu e-mail"/>
+      <button class="capture-btn" onclick="handleCapture()">Avise-me</button>
+    </div>
+    <p class="capture-note">Sem spam. Só o que importa — na hora certa.</p>
+    <p class="capture-success" id="capture-success">✓ Ótimo! Você será avisado no lançamento.</p>
   </div>
 
-  <span class="form-note">
-    Sem spam. Só o que importa — na hora certa.
-  </span>
+  <!-- Direita: foto da autora -->
+  <div class="hero-right">
+    <!-- INSTRUÇÃO: Substitua o src abaixo pelo caminho da sua foto (foto do escritório, blazer preto) -->
+    <img class="hero-foto" src="./assets/tania.jpg" alt="Tania Gonzaga — Trinity Vox"
+         />
+    <div class="hero-foto-overlay"></div>
 
-</form>
-```
-
+    <!-- Escudo decorativo quando não há foto -->
+    <div class="hero-escudo-wrap">
+      <svg width="72" height="80" viewBox="0 0 100 112" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.6">
+        <path d="M50 2 L97 17 L97 63 Q97 90 50 110 Q3 90 3 63 L3 17 Z" fill="none" stroke="#C9A84C" stroke-width="3"/>
+        <path d="M50 24 L73 74 L62 74 L50 50 L38 74 L27 74 Z" fill="#C9A84C" opacity="0.4"/>
+      </svg>
     </div>
 
-    <div class="hero-right">
-      <img src="https://trinityvox-com-br.lovable.app/assets/hero-DYXwn1Pc.jpg" alt="Trinity Vox" />
-      <blockquote class="hero-quote">
-        "Antes da tempestade, há sempre uma voz. Trinity Vox é essa voz."
-        <cite>— Tania Gonzaga</cite>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <!-- duplicated for seamless loop -->
-      <span class="ticker-item"><span>·</span> Preparo · Não · Pânico</span>
-      <span class="ticker-item"><span>·</span> Clareza · Antes · Do · Caos</span>
-      <span class="ticker-item"><span>·</span> Voz · Interior · Decide</span>
-      <span class="ticker-item"><span>·</span> Trinity · Vox</span>
-      <span class="ticker-item"><span>·</span> Em · Breve</span>
-      <span class="ticker-item"><span>·</span> Tania · Gonzaga</span>
-      <span class="ticker-item"><span>·</span> Preparo · Não · Pânico</span>
-      <span class="ticker-item"><span>·</span> Clareza · Antes · Do · Caos</span>
-      <span class="ticker-item"><span>·</span> Voz · Interior · Decide</span>
-      <span class="ticker-item"><span>·</span> Trinity · Vox</span>
-      <span class="ticker-item"><span>·</span> Em · Breve</span>
-      <span class="ticker-item"><span>·</span> Tania · Gonzaga</span>
+    <!-- Quote na foto -->
+    <div class="hero-quote">
+      <p class="hero-quote-txt">"Quando o caos chega,<br>você será a pessoa mais lúcida da sala."</p>
+      <p class="hero-quote-author">Trinity Vox</p>
     </div>
   </div>
+</section>
 
-  <!-- QUOTE -->
-  <section class="quote-section">
-    <div class="quote-inner" data-fade>
-      <blockquote>
-        "Há momentos em que a única coisa entre você e o caos é <em>uma voz</em> que você treinou para escutar antes do barulho começar."
-      </blockquote>
-      <div class="q-attr">
-        <div class="q-attr-line"></div>
-        <span>Trecho · Trinity Vox</span>
-        <div class="q-attr-line"></div>
-      </div>
-    </div>
-  </section>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item">Trinity Vox · <b>Em breve</b></span>
+    <span class="m-item">Por Tania Gonzaga · <b>trinityvox.com.br</b></span>
+    <span class="m-item">O pânico passa. <b>A clareza salva.</b></span>
+    <span class="m-item">Cadastre seu e-mail · <b>Seja o primeiro a saber</b></span>
+    <span class="m-item">Trinity Vox · <b>Em breve</b></span>
+    <span class="m-item">Por Tania Gonzaga · <b>trinityvox.com.br</b></span>
+    <span class="m-item">O pânico passa. <b>A clareza salva.</b></span>
+    <span class="m-item">Cadastre seu e-mail · <b>Seja o primeiro a saber</b></span>
+  </div>
+</div>
 
-  <!-- AUTHOR -->
-  <section class="author-section">
-    <div class="author-img-wrap" data-fade>
-      <img src="https://trinityvox-com-br.lovable.app/assets/hero-DYXwn1Pc.jpg" alt="Tania Gonzaga" />
+<!-- TEASER MÍNIMO -->
+<section style="background:var(--preto2);border-bottom:1px solid rgba(201,168,76,0.08);padding:72px 64px;text-align:center">
+  <p style="font-size:9px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:var(--ouro);margin-bottom:20px">O que está vindo</p>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:#F5F2EC;line-height:1.15;max-width:640px;margin:0 auto 20px">
+    Algo está sendo criado.<br>E vai mudar o que você faz<br>quando mais importa.
+  </h2>
+  <p style="font-size:13px;font-weight:300;color:#888;line-height:1.9;max-width:500px;margin:0 auto 40px">
+    Em breve. Cadastre seu e-mail para ser avisado primeiro.
+  </p>
+  <div style="display:inline-flex;align-items:center;gap:16px;border:1px solid rgba(201,168,76,0.2);padding:20px 40px">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--ouro);line-height:1">Em breve</span>
+    <div style="width:1px;height:40px;background:rgba(201,168,76,0.2)"></div>
+    <span style="font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#666;text-align:left;line-height:1.8">Trinity Vox<br>Por Tania Gonzaga</span>
+  </div>
+</section>
+
+<!-- PERGUNTA PROVOCADORA -->
+<section class="trecho-section">
+  <div class="trecho-inner">
+    <p style="font-size:10px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--ouro);margin-bottom:32px">Uma pergunta</p>
+    <p class="trecho-txt">
+      Se algo acontecesse agora<br>com alguém que você ama —<br>
+      <em>você saberia o que fazer?</em>
+    </p>
+    <div class="trecho-linha"></div>
+    <p class="trecho-fonte">Esse livro existe porque a resposta, na maioria das vezes, é não.</p>
+    <p style="font-size:12px;font-weight:300;color:#555;margin-top:20px;letter-spacing:2px;text-transform:uppercase">Em breve · Trinity Vox</p>
+  </div>
+</section>
+
+<!-- AUTORA -->
+<div style="background:var(--preto3);border-top:1px solid rgba(201,168,76,0.1);padding:80px 64px">
+  <div class="autora-section" style="padding:0">
+    <div class="autora-foto-wrap">
+      <!-- INSTRUÇÃO: Substitua pelo caminho da foto do escritório, blazer preto -->
+      <img class="autora-foto-img" src="./assets/tania.jpg" alt="Tania Gonzaga"
+           />
+      <div class="autora-foto-frame"></div>
     </div>
-    <div class="author-content" data-fade>
-      <p class="author-eyebrow">Sobre a autora</p>
-      <h2>Tania Gonzaga</h2>
-      <p class="author-bio">
-        <strong>Tania Gonzaga</strong> escreve sobre o instante anterior à decisão — aquele em que o pânico tenta tomar a palavra. Em <strong>Trinity Vox</strong>, ela transforma experiência, escuta e preparo em um manual silencioso para os dias que ninguém viu chegar.
+    <div class="autora-info">
+      <p class="sec-label">A Autora</p>
+      <h2 class="autora-nome">Tania Gonzaga</h2>
+      <p class="autora-pen">Escreve como Trinity Vox</p>
+      <div class="autora-linha"></div>
+      <p class="autora-bio">
+        Jornalista e <strong>Arquiteta da Clareza</strong>. O método Trinity Vox nasceu de uma experiência que mudou tudo. A pergunta que não saiu mais da cabeça foi simples: <strong>"E se eu soubesse o que fazer?"</strong>
+        <br><br>
+        Trinity é a personagem que age quando todo o sistema entra em colapso. Vox é voz, em latim. Juntos: a voz que comanda quando o caos chega.
       </p>
-      <div class="author-roles">
-        <span class="role-tag">Autora</span>
-        <span class="role-tag">Mentora</span>
-        <span class="role-tag">Voz</span>
+      <div class="autora-tags">
+        <span class="autora-tag">Jornalista</span>
+        <span class="autora-tag">Arquiteta da Clareza</span>
+        <span class="autora-tag">Trinity Vox</span>
       </div>
-      <a class="ig-link" href="https://instagram.com/trinityvoxoficial" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        Acompanhar no Instagram
-      </a>
+      <span class="btn-ouro" style="cursor:default;opacity:0.7">Em breve: @trinityvoxoficial</span>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- FOOTER CTA -->
-  <section class="footer-cta">
-    <div class="construction-badge" data-fade>Em construção, com cuidado.</div>
-    <p data-fade>Estamos preparando uma experiência à altura do que Trinity Vox propõe. Deixe seu e-mail acima e seja o primeiro a saber quando abrirmos as portas.</p>
-    <div class="launch-badges" data-fade>
-      <div class="badge">
-        <div class="badge-label">Lançamento em breve</div>
-        <div class="badge-value">Pré-lançamento</div>
-      </div>
-      <div class="badge-sep"></div>
-      <div class="badge">
-        <div class="badge-label">Ano</div>
-        <div class="badge-value">2026</div>
-      </div>
-      <div class="badge-sep"></div>
-      <div class="badge">
-        <div class="badge-label">Status</div>
-        <div class="badge-value" style="font-size:1rem;">Lista de espera aberta</div>
-      </div>
+<!-- EM CONSTRUÇÃO -->
+<section class="construcao-section">
+  <div>
+    <div class="const-ouro-bar"></div>
+    <h3 class="const-title">Site em construção</h3>
+    <p class="const-sub">Estamos preparando a experiência completa da Trinity Vox. Cadastre seu e-mail acima para ser avisado em primeira mão — antes de todo mundo.</p>
+    <div class="const-status">
+      <div class="const-dot"></div>
+      <span class="const-status-txt">Projeto ativo · Em breve — 2026</span>
     </div>
-  </section>
+  </div>
+  <div class="const-right">
+    <span class="const-right-label">Lançamento</span>
+    <div class="const-right-num">Em<br>breve</div>
+    <p class="const-right-sub">Trinity Vox</p>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">Trinity Vox<br><small style="font-family:Inter,sans-serif;font-size:0.65rem;color:var(--muted);font-weight:300;letter-spacing:0.1em;text-transform:uppercase;">Por Tania Gonzaga</small></div>
-    <p class="footer-copy">© 2026 Trinity Vox. Todos os direitos reservados.</p>
-    <a class="footer-ig" href="https://instagram.com/trinityvoxoficial" target="_blank" rel="noopener">@trinityvoxoficial</a>
-  </footer>
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+      <svg width="26" height="30" viewBox="0 0 100 112" fill="none">
+        <path d="M50 2 L97 17 L97 63 Q97 90 50 110 Q3 90 3 63 L3 17 Z" fill="#0F0F0F" stroke="#C9A84C" stroke-width="4"/>
+        <path d="M50 24 L73 74 L62 74 L50 50 L38 74 L27 74 Z" fill="#C9A84C"/>
+        <path d="M37 63 L50 51 L56 65 L48 74 L37 63Z" fill="#0F0F0F"/>
+        <line x1="42" y1="61" x2="57" y2="73" stroke="#C9A84C" stroke-width="3" stroke-linecap="square"/>
+      </svg>
+      <div class="footer-nome">Trinity Vox</div>
+    </div>
+    <div class="footer-sub">Por Tania Gonzaga</div>
+    <p class="footer-copy">© 2026 Trinity Vox. Todos os direitos reservados.<br>Marca em processo de registro · INPI · A.C.A.L.M.A. é um produto Trinity Vox</p>
+  </div>
+  <div class="footer-right">
+    <span class="footer-ig" style="cursor:default">@trinityvoxoficial</span>
+    <p class="footer-em-const" style="margin-top:14px">Site em construção</p>
+    <p style="font-size:9px;color:#444;margin-top:8px;letter-spacing:2px;font-style:italic">O pânico passa. A clareza salva.</p>
+  </div>
+</footer>
 
-  <script>
-    // Fade-in on scroll
-    const faders = document.querySelectorAll('[data-fade]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    faders.forEach(el => observer.observe(el));
-    // Trigger visible ones on load
-    setTimeout(() => {
-      faders.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) el.classList.add('visible');
-      });
-    }, 100);
-
-    // Form
-    function handleSubmit() {
-      const input = document.getElementById('emailInput');
-      const email = input.value.trim();
-      if (!email || !email.includes('@')) {
-        input.style.borderColor = '#c0392b';
-        setTimeout(() => input.style.borderColor = '', 1500);
-        return;
-      }
-      input.value = '';
-      input.placeholder = '✓ Você será avisado!';
-      input.disabled = true;
-    }
-  </script>
+<script>
+function handleCapture(){
+  var input=document.getElementById('email-input');
+  var success=document.getElementById('capture-success');
+  var email=input.value.trim();
+  if(!email||!email.includes('@')){
+    input.style.borderColor='#E24B4A';
+    input.placeholder='Digite um e-mail válido';
+    setTimeout(function(){input.style.borderColor='rgba(201,168,76,0.3)';input.placeholder='seu@email.com'},2000);
+    return;
+  }
+  input.parentNode.style.display='none';
+  success.style.display='block';
+  document.querySelector('.capture-note').style.display='none';
+}
+document.getElementById('email-input').addEventListener('keydown',function(e){if(e.key==='Enter')handleCapture()});
+</script>
+<script src="./script.js"></script>
 </body>
 </html>
