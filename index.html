@@ -363,10 +363,15 @@
       </p>
       <div class="form-area" data-fade>
         <label class="form-label">Quero ser avisado no lançamento</label>
-        <div class="form-row">
-          <input type="email" placeholder="seu@email.com" id="emailInput" />
-          <button type="button" onclick="handleSubmit()">Avise-me</button>
-        </div>
+        <form action="https://formsubmit.co/luiz@elw.com.br" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://trinityvox.com.br">
+
+          <div class="form-row">
+            <input type="email" name="email" placeholder="seu@email.com" required />
+            <button type="submit">Avise-me</button>
+          </div>
+        </form>
         <span class="form-note">Sem spam. Só o que importa — na hora certa.</span>
       </div>
     </div>
